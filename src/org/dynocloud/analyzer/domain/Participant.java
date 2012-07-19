@@ -24,8 +24,6 @@ public class Participant extends AbstractNode implements MayBeBase{
 		return baseValue;
 	}
 	
-	public static boolean isParticipant(RootElement element) {
-		return element instanceof Participant;
-	}
+	
 
 }

@@ -11,7 +11,7 @@ public class Influence extends AbstractEdge{
 	void setTarget(AbstractNode target){
 		if (target.isControllable())
 			throw new IllegalArgumentException("The control area must not be influenced!");
-		if (Location.NOISE_AREA.equals(target.getLocation()))
+		if (target.getLocation() instanceof NoiseArea)
 			throw new IllegalArgumentException("The noise area must not be influenced!");
 		super.setTarget(target);
 	}

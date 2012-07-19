@@ -16,12 +16,11 @@ public class Transaction extends AbstractEdge{
 	
 	@Override
 	void setSource(AbstractNode source){
-		if (Location.NOISE_AREA.equals(source.getLocation()))
+		if (source.getLocation() instanceof NoiseArea)
 			throw new IllegalArgumentException("A transaction cannot be done from the noise area");
 		if (source instanceof Gateway)
 			throw new IllegalArgumentException("A transaction cannot be done by a gateway!");
 		super.setSource(source);
-		
 	}
 
 }

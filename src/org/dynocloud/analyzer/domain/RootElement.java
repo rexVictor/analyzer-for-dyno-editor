@@ -13,6 +13,8 @@ public abstract class RootElement implements Serializable{
 	
 	private String id;
 	
+	private String resourceId;
+	
 	protected RootElement() {
 		super();
 	}
@@ -32,6 +34,28 @@ public abstract class RootElement implements Serializable{
 	public void setId(String id) {
 		this.id = id;
 	}
+
+	public String getResourceId() {
+		return resourceId;
+	}
+
+	public void setResourceId(String resourceId) {
+		this.resourceId = resourceId;
+	}
+	
+	@Override
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append(getClass().getSimpleName());
+		sb.append(": ");
+		sb.append(name);
+		sb.append("\n\t");
+		sb.append("resourceID"+"\t:\t"+resourceId+"\n\t");
+		sb.append("id"+"\t:\t"+id);
+		return sb.toString();
+	}
+	
+	
 	
 	
 	

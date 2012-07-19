@@ -25,8 +25,4 @@ public class Activity extends AbstractNode implements MayBeBase{
 		this.baseValue = baseValue;
 	}
 
-	public static boolean isActivity(RootElement element){
-		return element instanceof Activity;
-	}
-
 }

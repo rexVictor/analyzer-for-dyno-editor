@@ -15,6 +15,20 @@
         </Extension>
         <Extension destinationClassName="org.dynocloud.analyzer.domain.AbstractNode"/>
     </Class>
+    <Class name="org.dynocloud.analyzer.domain.Location" x="28" y="11">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="org.dynocloud.analyzer.domain.AbstractNode"
+            endpointName="childNodes" kind="Simple">
+            <Point x="82" y="113"/>
+        </Association>
+    </Class>
     <Class name="org.dynocloud.analyzer.domain.ActivityGroup" x="168" y="349">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
@@ -29,15 +43,6 @@
             <Point x="15" y="219"/>
         </Extension>
         <Extension destinationClassName="org.dynocloud.analyzer.domain.AbstractNode"/>
-    </Class>
-    <Class name="org.dynocloud.analyzer.domain.Location" x="28" y="11">
-        <AttributesDisplayFilter public-accepted="true"
-            private-accepted="true" protected-accepted="true"
-            default-accepted="true" static-accepted="false"/>
-        <MethodDisplayFilter public-accepted="true"
-            private-accepted="false" protected-accepted="false"
-            default-accepted="false" static-accepted="false"
-            accessors-accepted="false" constructors-accepted="false"/>
     </Class>
     <Class name="org.dynocloud.analyzer.domain.Activity" x="17" y="349">
         <AttributesDisplayFilter public-accepted="true"
@@ -99,6 +104,16 @@
         </Association>
         <Communication destinationClassName="org.dynocloud.analyzer.domain.AbstractNode"/>
     </Class>
+    <Class name="org.dynocloud.analyzer.domain.Gateway" x="184" y="176">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="org.dynocloud.analyzer.domain.AbstractNode"/>
+    </Class>
     <Class name="org.dynocloud.analyzer.domain.Influence" x="756" y="419">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
@@ -110,7 +125,7 @@
         <Extension destinationClassName="org.dynocloud.analyzer.domain.AbstractEdge"/>
         <Communication destinationClassName="org.dynocloud.analyzer.domain.AbstractNode"/>
     </Class>
-    <Class name="org.dynocloud.analyzer.domain.Gateway" x="184" y="176">
+    <Class name="org.dynocloud.analyzer.domain.RootElement" x="413" y="21">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -118,7 +133,6 @@
             private-accepted="false" protected-accepted="false"
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
-        <Extension destinationClassName="org.dynocloud.analyzer.domain.AbstractNode"/>
     </Class>
     <Class name="org.dynocloud.analyzer.domain.Participant" x="306" y="349">
         <AttributesDisplayFilter public-accepted="true"
@@ -134,15 +148,6 @@
             <Point x="14" y="222"/>
         </Extension>
         <Extension destinationClassName="org.dynocloud.analyzer.domain.AbstractNode"/>
-    </Class>
-    <Class name="org.dynocloud.analyzer.domain.RootElement" x="413" y="21">
-        <AttributesDisplayFilter public-accepted="true"
-            private-accepted="true" protected-accepted="true"
-            default-accepted="true" static-accepted="false"/>
-        <MethodDisplayFilter public-accepted="true"
-            private-accepted="false" protected-accepted="false"
-            default-accepted="false" static-accepted="false"
-            accessors-accepted="false" constructors-accepted="false"/>
     </Class>
     <Class name="org.dynocloud.analyzer.domain.AbstractNode" x="322" y="166">
         <AttributesDisplayFilter public-accepted="true"
@@ -163,12 +168,15 @@
         </Association>
         <Association
             destinationClassName="org.dynocloud.analyzer.domain.Location"
-            endpointName="location" kind="Simple"/>
+            endpointName="location" kind="Simple">
+            <Point x="316" y="62"/>
+        </Association>
         <Association
             destinationClassName="org.dynocloud.analyzer.domain.AbstractEdge"
             endpointName="outgoing" kind="Simple">
             <Point x="470" y="267"/>
             <Point x="685" y="267"/>
         </Association>
+        <Communication destinationClassName="org.dynocloud.analyzer.domain.Location"/>
     </Class>
 </ClassDiagram>
