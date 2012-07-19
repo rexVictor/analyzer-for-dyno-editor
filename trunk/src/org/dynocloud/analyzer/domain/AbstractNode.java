@@ -10,9 +10,9 @@ public abstract class AbstractNode extends RootElement{
 	 */
 	private static final long serialVersionUID = -884029029649876764L;
 
-	private Location location;
+	private AbstractArea location;
 	
-	private boolean controllable;
+	private boolean controllable = true;
 	
 	private boolean controlled;
 	
@@ -24,7 +24,7 @@ public abstract class AbstractNode extends RootElement{
 		
 	}
 
-	public Location getLocation() {
+	public AbstractArea getLocation() {
 		return location;
 	}
 
@@ -36,9 +36,13 @@ public abstract class AbstractNode extends RootElement{
 		return controlled;
 	}
 
-	public void setLocation(Location location) {
+	public void setLocation(AbstractArea location) {
+		if (this.location != null) {
+			this.location.removeNode(this);
+		}
 		this.location = location;
-		this.controllable = Location.CONTROL_AREA.equals(location);
+		location.addNode(this);
+		this.controllable = (location instanceof ControlArea);
 	}
 
 	public void setControlled(boolean controlled) {
@@ -63,19 +67,16 @@ public abstract class AbstractNode extends RootElement{
 		outgoing.add(edge);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Override
+	public String toString(){
+		String proto = super.toString();
+		StringBuilder sb = new StringBuilder(proto);
+		sb.append("\n\tlocation"+"\t:\t"+location.getClass().getSimpleName()+"\n\t");
+		sb.append("controlled"+"\t:\t"+controlled+"\n\t");
+		sb.append("outgoing"+"\t:\t"+outgoing+"\n\t");
+		sb.append("incoming"+"\t:\t"+incoming+"\n\t");
 		
-	
-
-	
-	
-	
+		return null;
+	}
 
 }
