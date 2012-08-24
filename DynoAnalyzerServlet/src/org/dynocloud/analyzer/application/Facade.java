@@ -1,6 +1,11 @@
 package org.dynocloud.analyzer.application;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -8,6 +13,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -24,6 +30,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.catalina.util.Enumerator;
 import org.dynocloud.analyzer.domain.ShapeResolver;
 import org.dynocloud.analyzer.importer.json.application.Importer;
+import org.dynocloud.analyzer.plugins.AnalyzerEvent;
 import org.postgresql.Driver;
 
 /**
@@ -68,23 +75,33 @@ public class Facade extends HttpServlet {
 		if (json != null){
 			idToJson.remove(resourceID);
 			ShapeResolver resolver = importer.importJson(json);
-			out.print("<html><head></head><body><h5>");
-			out.print(resolver);
-			out.print("</h5></body></html>");
+			AnalyzerEvent event = new AnalyzerEvent(resolver);
+			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+			ObjectOutputStream objectStream = new ObjectOutputStream(byteArrayOutputStream);
+			objectStream.writeObject(event);
+			out.print("<html><head></head><body>");
 			
+			byte[] array = byteArrayOutputStream.toByteArray();
+			out.print("<h4> "+ Arrays.toString(array)+ "</h4>");
+			
+			InputStream inputStream = new ByteArrayInputStream(array);
+			ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+			try {
+				AnalyzerEvent imported = (AnalyzerEvent) objectInputStream.readObject();
+				out.print("<h3> "+ imported.getShapeResolver().toString() +" </h3>");
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			Statement statement = null;
 			try {
-				Statement stmtCreate = connection.createStatement();
-		//		stmtCreate.execute("CREATE TABLE Customer" + "(alter integer, Vorname char(25), Nachname char(25), Strasse char(25), Ort char(25));");
-				//stmtCreate.execute("CREATE TABLE Test" + "(key varchar, value , Nachname char(25), Strasse char(25), Ort char(25));");
-				
 				statement = connection.createStatement();
-				
+				String graphObjectAsString;
 				statement.executeUpdate( "INSERT INTO CUSTOMER " +
 					"VALUES(50,'Christian','Ullenboom','Immengarten 6','Hannover')" );
 				 ResultSet rs = statement.executeQuery( "SELECT * FROM Customer" );
 			      while ( rs.next() ){
-			    	  System.out.print(rs.getString(0));
+			    	  //System.out.print(rs.getString(0));
 			        System.out.printf( "%s, %s %s%n", rs.getString(1),
 			                           rs.getString(2), rs.getString(3) );
 			      }
@@ -96,6 +113,9 @@ public class Facade extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			out.print("<h5>");
+			out.print(resolver);
+			out.print("</h5></body></html>");
 			
 		}
 	}
