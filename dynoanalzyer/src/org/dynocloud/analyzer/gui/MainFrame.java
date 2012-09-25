@@ -12,7 +12,7 @@ public class MainFrame {
 	
 	private final JPanel panel = new JPanel();
 	
-	private final JMenuBar menuBar;
+//	private final JMenuBar menuBar;
 	
 	private final JTabbedPane tabbedPane = new JTabbedPane();
 	
@@ -20,7 +20,7 @@ public class MainFrame {
 
 	public MainFrame(JMenuBar menuBar) {
 		super();
-		this.menuBar = menuBar;
+	//	this.menuBar = menuBar;
 		frame.setJMenuBar(menuBar);
 		frame.setContentPane(panel);
 		panel.setLayout(new BorderLayout());

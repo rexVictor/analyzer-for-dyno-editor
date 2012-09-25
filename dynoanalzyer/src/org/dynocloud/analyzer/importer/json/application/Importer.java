@@ -3,12 +3,16 @@ package org.dynocloud.analyzer.importer.json.application;
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.dynocloud.analyzer.domain.ShapeResolver;
 import org.dynocloud.analyzer.domain.elements.AbstractEdge;
 import org.dynocloud.analyzer.domain.elements.AbstractNode;
+import org.dynocloud.analyzer.domain.elements.Connector;
+import org.dynocloud.analyzer.domain.elements.Gateway;
+import org.dynocloud.analyzer.domain.elements.Influence;
 import org.dynocloud.analyzer.domain.elements.NoiseArea;
 import org.dynocloud.analyzer.domain.elements.RootElement;
 import org.dynocloud.analyzer.importer.json.application.parser.AbstractParser;
@@ -54,6 +58,32 @@ public class Importer {
 			}
 		}
 		return graph;
+	}
+	
+	public void removeGatewaysFrom(ShapeResolver resolver){
+		List<Gateway> gateways = new LinkedList<Gateway>();
+		for (RootElement element : resolver){
+			if(element instanceof Gateway){
+				gateways.add((Gateway) element);
+			}
+		}
+		for (Gateway gateway : gateways){
+			List<AbstractEdge> incomings = gateway.getIncoming();
+			AbstractEdge outgoing = gateway.getOutgoing().get(0);
+			AbstractNode target = outgoing.getTarget();
+			List<AbstractNode> sources = new LinkedList<AbstractNode>();
+			for (AbstractEdge edge : incomings){
+				sources.add(edge.getSource());
+			}
+			incomings = new LinkedList<AbstractEdge>(incomings);
+			for (AbstractEdge edge : incomings){
+				Connector.unconnect(edge.getSource(), edge, edge.getTarget());
+			}
+			Connector.unconnect(gateway, outgoing, target);
+			for (AbstractNode node : sources){
+				Connector.connect(node, new Influence(), target);
+			}
+		}
 	}
 	
 	private ShapeResolver parse(Map<String, Object> canvas){

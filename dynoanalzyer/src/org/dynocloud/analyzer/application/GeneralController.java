@@ -8,6 +8,7 @@ import org.dynocloud.analyzer.gui.MainFrame;
 import org.dynocloud.analyzer.importer.json.application.Importer;
 import org.dynocloud.analyzer.plugins.DYNOEvent;
 import org.dynocloud.analyzer.plugins.Manager;
+import org.jgrapht.DirectedGraph;
 
 public class GeneralController {
 	
@@ -28,11 +29,14 @@ public class GeneralController {
 	public void open(File file){
 		try{
 			ShapeResolver resolver = importer.importJson(file);
-			//System.out.println(resolver);
+			ShapeResolver resolverWithoutGateways = resolver.clone();
+			importer.removeGatewaysFrom(resolver.clone());
+			DirectedGraph<String, String> graph = importer.buildGraph(resolver);
+			DirectedGraph<String, String> graphWithoutGateways = importer.buildGraph(resolverWithoutGateways);
 			DocumentController controller = new DocumentController();
 			Container component = controller.getView();
 			mainFrame.addTab("Titel einfügen", component);
-			DYNOEvent dynoEvent = new DYNOEvent(resolver, null, null, null, component);
+			DYNOEvent dynoEvent = new DYNOEvent(resolver, resolverWithoutGateways, graph, graphWithoutGateways, component);
 			manager.documentOpened(dynoEvent);
 		}
 		catch (Exception e){

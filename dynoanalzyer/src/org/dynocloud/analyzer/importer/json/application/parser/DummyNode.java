@@ -5,7 +5,7 @@ import org.dynocloud.analyzer.domain.elements.ControlArea;
 import org.dynocloud.analyzer.domain.elements.InfluenceArea;
 import org.dynocloud.analyzer.domain.elements.Nester;
 
-class DummyNode extends AbstractNode{
+public class DummyNode extends AbstractNode{
 
 	/**
 	 * 
