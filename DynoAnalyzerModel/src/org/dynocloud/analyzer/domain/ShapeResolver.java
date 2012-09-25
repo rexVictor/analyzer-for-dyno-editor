@@ -62,8 +62,11 @@ public class ShapeResolver implements Iterable<RootElement>, Serializable, Clone
 				String resourceID = cloneArea.getResourceId();
 				AbstractArea originalArea = (AbstractArea) resolver.getElement(resourceID);
 				AbstractArea originalParentArea = originalArea.getParent();
-				AbstractArea cloneParentArea = (AbstractArea) cloneResolver.getElement(originalParentArea.getResourceId());
-				Nester.addChildArea(cloneParentArea, cloneArea);
+				if (originalParentArea != null){
+					AbstractArea cloneParentArea = (AbstractArea) cloneResolver.getElement(originalParentArea.getResourceId());
+					Nester.addChildArea(cloneParentArea, cloneArea);
+				}
+				
 			}
 			if (element instanceof AbstractEdge){
 				AbstractEdge cloneEdge = (AbstractEdge) element;
