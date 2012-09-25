@@ -1,0 +1,29 @@
+{
+                     "resourceId":"some!id",
+                     "properties":{
+                        "id":"",
+                        "name":"Some Name",
+                        "documentation":"",
+                        "bgcolor":"#ffffff",
+                        "basicbletter":"β",
+                        "isbasic":"",
+                        "location":"controlArea",
+                        "controllable":true,
+                        "controlled":false,
+                        "fillcircle":"#ffffff",
+                        "objecttype":"elementType",
+                        "prescriptivecontrol":"",
+                        "prescriptivecontroldescription":""
+                     },
+                     "stencil":{
+                        "id":"participant"
+                     },
+                     "childShapes":[
+
+                     ],
+                     "outgoing":[
+                        {
+                           "resourceId":"oryx_E3C5893E-56EB-4D61-9EB2-F8E324D5B05D"
+                        }
+                     ]
+}

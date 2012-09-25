@@ -1,0 +1,36 @@
+{
+  "resourceId" : "oryx-canvas123",
+  "properties" : {
+    "id" : "",
+    "name" : "",
+    "documentation" : "",
+    "version" : "",
+    "author" : "",
+    "language" : "English",
+    "targetnamespace" : "http://www.signavio.com/bpmn20",
+    "expressionlanguage" : "",
+    "querylanguage" : "",
+    "creationdate" : "",
+    "modificationdate" : "",
+    "pools" : "",
+    "objecttype" : "areaType"
+  },
+  "stencil" : {
+    "id" : "noiseArea"
+  },
+  "bounds" : {
+    "lowerRight" : {
+      "x" : 1485,
+      "y" : 1050
+    },
+    "upperLeft" : {
+      "x" : 0,
+      "y" : 0
+    }
+  },
+  "stencilset" : {
+    "url" : "/oryx///stencilsets/DynoEditor/dyno.json",
+    "namespace" : "http://dynocloud.org#"
+  },
+  "ssextensions" : [ ]
+}
