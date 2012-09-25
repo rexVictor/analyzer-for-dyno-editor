@@ -85,5 +85,16 @@ public abstract class AbstractNode extends RootElement{
 		sb.append("incoming"+"\t:\t"+incoming+"\n");	
 		return sb.toString();
 	}
+	
+	@Override
+	public AbstractNode clone(){
+		AbstractNode clone = (AbstractNode) super.clone();
+		clone.outgoing = new LinkedList<AbstractEdge>();
+		clone.incoming = new LinkedList<AbstractEdge>();
+		clone.controllable = false;
+		clone.controlled = false;
+		clone.location = null;		
+		return clone;
+	}
 
 }

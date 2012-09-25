@@ -1,6 +1,6 @@
 package org.dynocloud.analyzer.domain.elements;
 
-public abstract class AbstractEdge extends RootElement{
+public abstract class AbstractEdge extends RootElement implements Cloneable{
 	
 	/**
 	 * 
@@ -48,6 +48,16 @@ public abstract class AbstractEdge extends RootElement{
 			return;
 		}
 		controllableTarget = target.isControllable();		
+	}
+	
+	@Override
+	public AbstractEdge clone() {
+		AbstractEdge clone = (AbstractEdge) super.clone();
+		clone.source = null;
+		clone.target = null;
+		clone.controllableSource = false;
+		clone.controllableTarget = false;
+		return clone;
 	}
 	
 	
