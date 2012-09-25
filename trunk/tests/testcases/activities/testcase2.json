@@ -1,0 +1,32 @@
+ {
+                     "resourceId":"resource-id123",
+                     "properties":{
+                        "id":"",
+                        "name":"Activity",
+                        "documentation":"",
+                        "bgcolor":"#ffffff",
+                        "location":"controlArea",
+                        "controllable":true,
+                        "controlled":false,
+                        "fillcircle":"#ffffff",
+                        "basicbletter":"β",
+                        "isbasic":true,
+                        "sanctionalcontrol":"",
+                        "sanctionalcontroldescription":"",
+                        "prescriptivecontrol":"",
+                        "prescriptivecontroldescription":"",
+                        "objecttype":"elementType"
+                     },
+                     "stencil":{
+                        "id":"activity"
+                     },
+                     "childShapes":[
+
+                     ],
+                     "outgoing":[
+                        {
+                           "resourceId":"oryx_F52D0B2C-13A4-4ECC-97EC-8B7F3402FDFF"
+                        }
+                     ]
+                     
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugins>
+	<plugin path="plugins/testplugin.jar" class="org.dynocloud.analyzer.plugin.test.application.Activator"/>
+</plugins>
