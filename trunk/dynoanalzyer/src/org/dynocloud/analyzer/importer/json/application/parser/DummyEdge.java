@@ -2,7 +2,7 @@ package org.dynocloud.analyzer.importer.json.application.parser;
 
 import org.dynocloud.analyzer.domain.elements.AbstractEdge;
 
-class DummyEdge extends AbstractEdge{
+public class DummyEdge extends AbstractEdge{
 
 	/**
 	 * 
