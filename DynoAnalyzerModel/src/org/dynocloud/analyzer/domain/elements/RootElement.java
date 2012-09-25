@@ -2,7 +2,7 @@ package org.dynocloud.analyzer.domain.elements;
 
 import java.io.Serializable;
 
-public abstract class RootElement implements Serializable{
+public abstract class RootElement implements Serializable, Cloneable{
 	
 	/**
 	 * 
@@ -52,7 +52,20 @@ public abstract class RootElement implements Serializable{
 		sb.append("\n\t");
 		sb.append("resourceID"+"\t:\t"+resourceId+"\n\t");
 		sb.append("id"+"\t:\t"+id);
-		return sb.toString();
+		return sb.toString();		
+	}
+	
+	@Override
+	public RootElement clone(){
+		RootElement clone = null;
+		try {
+			clone =  (RootElement) super.clone();
+		} catch (CloneNotSupportedException e) {
+			// This shouldn't happen, since this is cloneable.
+			e.printStackTrace();
+		}		
+		return clone;
+		
 	}
 	
 	

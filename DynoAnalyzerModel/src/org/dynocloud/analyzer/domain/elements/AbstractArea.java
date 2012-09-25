@@ -52,6 +52,15 @@ public abstract class AbstractArea extends RootElement{
 		return childNodes;
 	}
 	
+	@Override
+	public AbstractArea clone(){
+		AbstractArea clone = (AbstractArea) super.clone();
+		clone.childAreas = new LinkedList<AbstractArea>();
+		clone.childNodes = new LinkedList<AbstractNode>();		
+		clone.parent = null;
+		return clone;
+	}
+	
 	
 	
 	

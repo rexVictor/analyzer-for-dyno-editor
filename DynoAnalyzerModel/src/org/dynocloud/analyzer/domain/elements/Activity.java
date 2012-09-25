@@ -25,5 +25,6 @@ public class Activity extends AbstractNode implements MayBeBase{
 	public void setBaseValue(boolean baseValue) {
 		this.baseValue = baseValue;
 	}
+	
 
 }
