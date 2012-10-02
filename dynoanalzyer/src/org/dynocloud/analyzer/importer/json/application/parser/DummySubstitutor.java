@@ -1,5 +1,6 @@
 package org.dynocloud.analyzer.importer.json.application.parser;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.dynocloud.analyzer.domain.ShapeResolver;
@@ -14,7 +15,7 @@ public class DummySubstitutor {
 		for (RootElement element : resolver){
 			if (element instanceof AbstractNode){
 				AbstractNode node = (AbstractNode) element;
-				List<AbstractEdge> outgoing = node.getOutgoing();
+				List<AbstractEdge> outgoing = new LinkedList<AbstractEdge>(node.getOutgoing());
 				for (AbstractEdge edge : outgoing){
 					if (edge instanceof DummyEdge){
 						String resourceId = edge.getResourceId();
@@ -23,7 +24,7 @@ public class DummySubstitutor {
 						Connector.connect(node, newEdge);						
 					}
 				}
-				List<AbstractEdge> incoming = node.getIncoming();
+				List<AbstractEdge> incoming = new LinkedList<AbstractEdge>(node.getIncoming());
 				for (AbstractEdge edge : incoming){
 					if (edge instanceof DummyEdge){
 						String resourceId = edge.getResourceId();

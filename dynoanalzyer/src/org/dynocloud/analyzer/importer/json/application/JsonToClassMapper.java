@@ -23,6 +23,7 @@ public class JsonToClassMapper {
 	{
 		map.put("noiseArea", NoiseArea.class);
 		map.put("influenceArea",InfluenceArea.class);
+		map.put("InfluenceArea", InfluenceArea.class);
 		map.put("controlArea", ControlArea.class);
 		map.put("participant", Participant.class);
 		map.put("participantGroup", ParticipantGroup.class);
