@@ -16,6 +16,7 @@ public class AbstractAreaTest {
 			private static final long serialVersionUID = -8465558947173763919L;
 		};
 		AbstractArea clone = area.clone();
+		System.out.println(clone);
 		fail();
 	}
 
