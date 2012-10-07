@@ -30,7 +30,7 @@ public class GeneralController {
 		try{
 			ShapeResolver resolver = importer.importJson(file);
 			ShapeResolver resolverWithoutGateways = resolver.clone();
-			importer.removeGatewaysFrom(resolver.clone());
+			importer.removeGatewaysFrom(resolverWithoutGateways);
 			DirectedGraph<String, String> graph = importer.buildGraph(resolver);
 			DirectedGraph<String, String> graphWithoutGateways = importer.buildGraph(resolverWithoutGateways);
 			DocumentController controller = new DocumentController();
