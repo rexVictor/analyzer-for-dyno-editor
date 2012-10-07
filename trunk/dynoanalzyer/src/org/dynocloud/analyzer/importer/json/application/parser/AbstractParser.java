@@ -49,8 +49,7 @@ public abstract class AbstractParser {
 		if (JSONConsts.EDGE_TYPE.equals(id)){
 			id = ((Map<String, String>) map.get(JSONConsts.PROPERTIES)).get(JSONConsts.NAME);			
 		}
-		return id;
-		
+		return id;		
 	}
 	
 	
