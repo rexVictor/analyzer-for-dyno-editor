@@ -43,6 +43,10 @@ public class ShapeResolver implements Iterable<RootElement>, Serializable, Clone
 		return elements.values().iterator();		
 	}
 	
+	public void removeElement(RootElement element){
+		elements.remove(element);
+	}
+	
 	@Override
 	public ShapeResolver clone(){
 		ShapeResolver resolver = this;
