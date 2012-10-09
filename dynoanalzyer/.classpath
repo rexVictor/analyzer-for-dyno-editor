@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="/ResourceLoader/external/jackson-annotations-2.0.0.jar"/>
-	<classpathentry kind="lib" path="/ResourceLoader/external/jackson-core-2.0.0.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="http://fasterxml.github.com/jackson-core/javadoc/2.0.0/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/ResourceLoader/external/jackson-databind-2.0.0.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="http://fasterxml.github.com/jackson-databind/javadoc/2.0.0/"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="libs/jgrapht-0.8.3/jgrapht-jdk1.6.jar" sourcepath="libs/jgrapht-0.8.3/src"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/DynoAnalyzerAPI"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/DynoAnalyzerModel"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/CheckIfBaseValueExists"/>
+	<classpathentry kind="lib" path="C:/Users/Michi/Desktop/Downloads/jackson-annotations-2.0.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Michi/Desktop/Downloads/jackson-core-2.0.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Michi/Desktop/Downloads/jackson-databind-2.0.5.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GraphAnalyzer"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
