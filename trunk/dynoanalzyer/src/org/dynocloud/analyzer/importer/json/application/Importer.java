@@ -64,11 +64,11 @@ public class Importer {
 		List<Gateway> gateways = new LinkedList<Gateway>();
 		for (RootElement element : resolver){
 			if(element instanceof Gateway){
-				gateways.add((Gateway) element);
-				resolver.removeElement(element);
+				gateways.add((Gateway) element);				
 			}
 		}
 		for (Gateway gateway : gateways){
+			resolver.removeElement(gateway);
 			List<AbstractEdge> incomings = gateway.getIncoming();
 			AbstractEdge outgoing = gateway.getOutgoing().get(0);
 			AbstractNode target = outgoing.getTarget();
