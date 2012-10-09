@@ -65,15 +65,18 @@ public class Importer {
 		for (RootElement element : resolver){
 			if(element instanceof Gateway){
 				gateways.add((Gateway) element);
+				resolver.removeElement(element);
 			}
 		}
 		for (Gateway gateway : gateways){
 			List<AbstractEdge> incomings = gateway.getIncoming();
 			AbstractEdge outgoing = gateway.getOutgoing().get(0);
 			AbstractNode target = outgoing.getTarget();
+			resolver.removeElement(outgoing);
 			List<AbstractNode> sources = new LinkedList<AbstractNode>();
 			for (AbstractEdge edge : incomings){
 				sources.add(edge.getSource());
+				resolver.removeElement(edge);
 			}
 			incomings = new LinkedList<AbstractEdge>(incomings);
 			for (AbstractEdge edge : incomings){
