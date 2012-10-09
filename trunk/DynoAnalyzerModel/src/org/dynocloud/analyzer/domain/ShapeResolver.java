@@ -26,7 +26,6 @@ public class ShapeResolver implements Iterable<RootElement>, Serializable, Clone
 	
 	public void addElement(RootElement element){
 		elements.put(element.getResourceId(), element);
-		
 	}
 	
 	public RootElement getElement(String resourceID){
@@ -40,11 +39,11 @@ public class ShapeResolver implements Iterable<RootElement>, Serializable, Clone
 
 	@Override
 	public Iterator<RootElement> iterator() {
-		return elements.values().iterator();		
+		return elements.values().iterator();
 	}
 	
 	public void removeElement(RootElement element){
-		elements.remove(element);
+		elements.remove(element.getResourceId());
 	}
 	
 	@Override
