@@ -24,7 +24,7 @@ public class MainFrame {
 		frame.setJMenuBar(menuBar);
 		frame.setContentPane(panel);
 		panel.setLayout(new BorderLayout());
-		panel.add(tabbedPane, BorderLayout.CENTER);		
+		panel.add(tabbedPane, BorderLayout.CENTER);
 	}
 	
 	public void addTab(String title, Component component){
