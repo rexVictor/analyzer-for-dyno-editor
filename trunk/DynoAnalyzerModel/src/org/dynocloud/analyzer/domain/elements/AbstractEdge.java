@@ -60,6 +60,13 @@ public abstract class AbstractEdge extends RootElement implements Cloneable{
 		return clone;
 	}
 	
+	@Override
+	public String toString(){
+		String base = super.toString();
+		base = base + "connects " + source.getName() + "with " + target.getName();
+		return base;
+	}
+	
 	
 
 }
