@@ -2,9 +2,8 @@ package org.dynocloud.analyzer.importer.json.application.parser;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Map;
 
 import org.dynocloud.analyzer.domain.ShapeResolver;
@@ -24,9 +23,9 @@ public class ParticipantParserTest {
 
 	@Test
 	public void test1() throws JsonParseException, JsonMappingException, IOException {
-		Path testcase = Paths.get("testcases", "participants","testcase1.json");
+		File testcase = new File("testcases/participants/testcase1.json");
 		ObjectMapper mapper = new ObjectMapper();
-		Map<String, Object> protoParticipant = mapper.readValue(testcase.toFile(), new TypeReference<Map<String, Object>>() {});
+		Map<String, Object> protoParticipant = mapper.readValue(testcase, new TypeReference<Map<String, Object>>() {});
 		Participant participant = new Participant();
 		ParticipantParser parser = (ParticipantParser) AbstractParser.getParser("participant");
 		ShapeResolver resolver = new ShapeResolver();
@@ -38,9 +37,9 @@ public class ParticipantParserTest {
 	
 	@Test
 	public void test2() throws JsonParseException, JsonMappingException, IOException {
-		Path testcase = Paths.get("testcases", "participants","testcase2.json");
+		File testcase = new File ("testcases/participants/testcase2.json");
 		ObjectMapper mapper = new ObjectMapper();
-		Map<String, Object> protoParticipant = mapper.readValue(testcase.toFile(), new TypeReference<Map<String, Object>>() {});
+		Map<String, Object> protoParticipant = mapper.readValue(testcase,new TypeReference<Map<String, Object>>() {});
 		Participant participant = new Participant();
 		ParticipantParser parser = (ParticipantParser) AbstractParser.getParser("participant");
 		ShapeResolver resolver = new ShapeResolver();
@@ -52,9 +51,9 @@ public class ParticipantParserTest {
 	
 	@Test
 	public void test3() throws JsonParseException, JsonMappingException, IOException {
-		Path testcase = Paths.get("testcases", "participants","testcase3.json");
+		File testcase = new File("testcases/participants/testcase3.json");
 		ObjectMapper mapper = new ObjectMapper();
-		Map<String, Object> protoParticipant = mapper.readValue(testcase.toFile(), new TypeReference<Map<String, Object>>() {});
+		Map<String, Object> protoParticipant = mapper.readValue(testcase, new TypeReference<Map<String, Object>>() {});
 		Participant participant = new Participant();
 		ParticipantParser parser = (ParticipantParser) AbstractParser.getParser("participant");
 		ShapeResolver resolver = new ShapeResolver();
