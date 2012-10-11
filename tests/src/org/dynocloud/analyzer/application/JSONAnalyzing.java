@@ -1,8 +1,7 @@
 package org.dynocloud.analyzer.application;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 import org.dynocloud.analyzer.domain.ShapeResolver;
@@ -20,8 +19,8 @@ public class JSONAnalyzing {
 	@Test
 	public void test() throws JsonParseException, JsonMappingException, IOException{
 		Importer importer = new Importer();
-		Path path = Paths.get("testcases", "testcase3.json");
-		ShapeResolver resolver = importer.importJson(path.toFile());
+		File path = new File("testcases/testcase3.json");
+		ShapeResolver resolver = importer.importJson(path);
 		for (RootElement element : resolver){
 			if (element instanceof AbstractNode){
 				System.out.println(element.getClass().getSimpleName()+": "+element.getName());
