@@ -27,6 +27,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Importer {
 	
+	private static int id = 0;
+	
 	public ShapeResolver importJson(File file) throws JsonParseException, JsonMappingException, IOException{
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> canvas = mapper.readValue(file, new TypeReference<Map<String, Object>>() {});
@@ -54,7 +56,7 @@ public class Importer {
 		for (RootElement element: resolver){
 			if (element instanceof AbstractEdge){
 				AbstractEdge edge = (AbstractEdge) element;
-				graph.addEdge(edge.getSource().getResourceId(), edge.getTarget().getResourceId(), edge.getResourceId());				
+				graph.addEdge(edge.getSource().getResourceId(), edge.getTarget().getResourceId(), edge.getResourceId());
 			}
 		}
 		return graph;
@@ -84,7 +86,11 @@ public class Importer {
 			}
 			Connector.unconnect(gateway, outgoing, target);
 			for (AbstractNode node : sources){
-				Connector.connect(node, new Influence(), target);
+				Influence influence = new Influence();
+				influence.setResourceId(id+"");
+				resolver.addElement(influence);
+				id++;
+				Connector.connect(node, influence, target);
 			}
 		}
 	}
