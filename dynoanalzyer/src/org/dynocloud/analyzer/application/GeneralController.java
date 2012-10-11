@@ -35,7 +35,7 @@ public class GeneralController {
 			DirectedGraph<String, String> graphWithoutGateways = importer.buildGraph(resolverWithoutGateways);
 			DocumentController controller = new DocumentController();
 			Container component = controller.getView();
-			mainFrame.addTab("Titel einfÃ¼gen", component);
+			mainFrame.addTab("Titel einfügen", component);
 			DYNOEvent dynoEvent = new DYNOEvent(resolver, resolverWithoutGateways, graph, graphWithoutGateways, component);
 			manager.documentOpened(dynoEvent);
 		}
