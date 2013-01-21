@@ -42,7 +42,7 @@ public abstract class AbstractNode extends RootElement{
 		}
 		this.location = location;
 	//	location.addNode(this);
-		this.controllable = (location instanceof ControlArea);
+		this.controllable = (location instanceof ControlAreas);
 	}
 
 	public void setControlled(boolean controlled) {

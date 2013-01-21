@@ -1,7 +1,7 @@
 package org.dynocloud.analyzer.domain.elements;
 
-public class Division extends AbstractArea implements IDivision, ControlAreas{
-
+public class DivisionGroup extends AbstractArea implements IDivision, ControlAreas{
+	
 	/**
 	 * 
 	 */
@@ -24,5 +24,6 @@ public class Division extends AbstractArea implements IDivision, ControlAreas{
 	public boolean isScalable(){
 		return scalable;
 	}
+
 
 }
