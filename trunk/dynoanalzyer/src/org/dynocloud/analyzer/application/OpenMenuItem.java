@@ -10,7 +10,7 @@ import javax.swing.JFileChooser;
 
 public class OpenMenuItem implements ActionListener{
 	
-	private final JFileChooser chooser = new JFileChooser(new File("/home/rex/workspace/tests/testcases"));
+	private final JFileChooser chooser = new JFileChooser(new File("/home/rex_victor/workspace/tests/testcases"));
 	
 	private final GeneralController controller;
 

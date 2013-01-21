@@ -7,6 +7,7 @@ import org.dynocloud.analyzer.domain.elements.Activity;
 import org.dynocloud.analyzer.domain.elements.ActivityGroup;
 import org.dynocloud.analyzer.domain.elements.ControlArea;
 import org.dynocloud.analyzer.domain.elements.Division;
+import org.dynocloud.analyzer.domain.elements.DivisionGroup;
 import org.dynocloud.analyzer.domain.elements.Gateway;
 import org.dynocloud.analyzer.domain.elements.Influence;
 import org.dynocloud.analyzer.domain.elements.InfluenceArea;
@@ -33,7 +34,7 @@ public class JsonToClassMapper {
 		map.put("gateway", Gateway.class);
 		map.put("Influence", Influence.class);
 		map.put("Transaction", Transaction.class);
-		//TODO divisionGroup
+		map.put("divisionGroup", DivisionGroup.class);
 	}
 	
 	public Class<? extends RootElement> getClass(String stencil){
