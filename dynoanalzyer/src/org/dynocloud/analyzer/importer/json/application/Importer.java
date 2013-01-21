@@ -2,7 +2,6 @@ package org.dynocloud.analyzer.importer.json.application;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -36,13 +35,8 @@ public class Importer {
 	}
 	
 	public ShapeResolver importJson(String string) throws JsonParseException, JsonMappingException, IOException{
-		Calendar calendar = Calendar.getInstance();
-		long begin = calendar.getTimeInMillis();
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> canvas = mapper.readValue(string, new TypeReference<Map<String, Object>>() {});
-		long end = calendar.getTimeInMillis();
-		System.out.println(end-begin);
-		
 		return parse(canvas);
 	}
 	

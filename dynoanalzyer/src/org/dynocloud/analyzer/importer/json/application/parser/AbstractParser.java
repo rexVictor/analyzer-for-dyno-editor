@@ -15,13 +15,15 @@ public abstract class AbstractParser {
 		
 		try {
 			Class.forName(NoiseAreaParser.class.getName());
-			Class.forName(ParticipantParser.class.getName());
-			Class.forName(ActivityParser.class.getName());
-			Class.forName(NoiseAreaParser.class.getName());
 			Class.forName(InfluenceAreaParser.class.getName());
 			Class.forName(ControlAreaParser.class.getName());
+			Class.forName(DivisionParser.class.getName());
+			
+			Class.forName(ActivityParser.class.getName());
 			Class.forName(ParticipantParser.class.getName());
+			
 			Class.forName(GatewayParser.class.getName());
+			
 			Class.forName(InfluenceParser.class.getName());
 			Class.forName(TransactionParser.class.getName());
 		} catch (ClassNotFoundException e) {
