@@ -1,6 +1,6 @@
 package org.dynocloud.analyzer.domain.elements;
 
-public class ControlArea extends AbstractArea{
+public class ControlArea extends AbstractArea implements ControlAreas{
 
 	/**
 	 * 
