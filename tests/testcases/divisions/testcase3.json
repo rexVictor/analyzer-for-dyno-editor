@@ -1,0 +1,16 @@
+{
+	"resourceId":"test-ID",
+	"properties":{
+		"id":"",
+		"name":"TEST-NAME",
+		"documentation":"",
+		"objecttype":"areaType",
+		"scalabilitysign":"∞",
+		"isscalable":true
+	},
+	"stencil":{
+		"id":"division"
+	},
+	"childShapes":[],
+	"outgoing":[]
+}

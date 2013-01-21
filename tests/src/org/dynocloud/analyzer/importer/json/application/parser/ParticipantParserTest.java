@@ -32,7 +32,7 @@ public class ParticipantParserTest {
 		parser.parseMap(protoParticipant, participant, resolver);
 		assertEquals("Name", participant.getName());
 		assertEquals("resourceId", participant.getResourceId());
-		assertEquals(false, participant.isBaseValue());	
+		assertEquals(false, participant.isBaseValue());
 	}
 	
 	@Test

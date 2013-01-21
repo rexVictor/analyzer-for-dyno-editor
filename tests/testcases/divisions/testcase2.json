@@ -1,0 +1,16 @@
+{
+	"resourceId":"resID",
+	"properties":{
+		"id":"",
+		"name":"some Name",
+		"documentation":"",
+		"objecttype":"areaType",
+		"scalabilitysign":"∞",
+		"isscalable":false
+	},
+	"stencil":{
+		"id":"division"
+	},
+	"childShapes":[],
+	"outgoing":[]
+}
